@@ -1,13 +1,22 @@
+
+"use client";
+
 import Image from "next/image";
+import { useEffect, useState } from "react";
 
 const Header = () => {
-  const date = new Date().toLocaleDateString("bn-BD", {
-    dateStyle: "full",
-  });
+  const [date, setDate] = useState("");
+
+  useEffect(() => {
+    setDate(
+      new Date().toLocaleDateString("bn-BD", {
+        dateStyle: "full",
+      })
+    );
+  }, []);
 
   return (
     <header className="flex w-full items-center justify-between px-4 py-4">
-
       {/* Logo, Title and Date - Left Side */}
       <div className="flex items-center gap-2">
         <Image
@@ -39,7 +48,6 @@ const Header = () => {
           সাইন আপ
         </button>
       </div>
-
     </header>
   );
 };
