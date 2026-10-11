@@ -4,7 +4,7 @@ import { notFound } from "next/navigation";
 import { getProductsByCategory } from "@/lib/api";
 import { categories } from "@/lib/categories";
 import CategorySort from "@/components/CategorySort";
-
+export const instant = false;
 type CategoryPageProps = {
 params: Promise<{
 slug: string;

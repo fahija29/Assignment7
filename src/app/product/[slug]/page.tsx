@@ -4,7 +4,7 @@ import { headers } from "next/headers";
 import { redirect } from "next/navigation";
 import { auth } from "@/lib/auth";
 import { getProductBySlug } from "@/lib/api";
-
+export const instant = false;
 type ProductPageProps = {
   params: Promise<{ slug: string }>;
 };
@@ -291,7 +291,7 @@ export default async function ProductPage({ params }: ProductPageProps) {
                     </td>
 
                     {/* Minimum Price - Red */}
-                    <td className="border-b border-r border-gray-200 bg-green-50/30 px-4 py-3 font-medium text-red-600 sm:px-5">
+                    <td className="border-b border-r border-gray-200 bg-green-50/30 px-4 py-3 font-medium text-green-600 sm:px-5">
                       ৳{formatPrice(market.min)}
                     </td>
 

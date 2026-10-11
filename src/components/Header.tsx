@@ -12,7 +12,7 @@ const categories = [
   { id: "sobji", name: "সবজি", icon: "🥬", slug: "sobji" },
   { id: "mach", name: "মাছ", icon: "🐟", slug: "mach" },
   { id: "mangsho", name: "মাংস", icon: "🍗", slug: "mangsho" },
-  { id: "dim-dudh", name: "ডিম-দুধ", icon: "🥛", slug: "dim-dudh" },
+  { id: "dim-dui", name: "ডিম-দুধ", icon: "🥛", slug: "dim-dui" },
   { id: "mosla", name: "মসলা", icon: "🌶️", slug: "mosla" },
 ];
 
@@ -21,6 +21,8 @@ export default function Header() {
 
   const { data: session } = authClient.useSession();
   const user = session?.user ?? null;
+
+  const userName = user?.name?.trim() || "প্রোফাইল";
 
   useEffect(() => {
     const today = new Date();
@@ -65,9 +67,10 @@ export default function Header() {
             {user ? (
               <Link
                 href="/profile"
-                className="rounded-md bg-green-700 px-3 py-2 text-xs font-medium text-white transition hover:bg-green-800 sm:px-4 sm:text-sm"
+                className="max-w-[180px] truncate rounded-md bg-green-700 px-3 py-2 text-xs font-medium text-white transition hover:bg-green-800 sm:max-w-[240px] sm:px-4 sm:text-sm"
+                title={userName}
               >
-                প্রোফাইল
+                {userName}
               </Link>
             ) : (
               <>
