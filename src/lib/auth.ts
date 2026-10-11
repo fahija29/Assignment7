@@ -1,12 +1,8 @@
-
 import "server-only";
-import { setServers } from "node:dns";
+
 import { betterAuth } from "better-auth";
 import { MongoClient } from "mongodb";
 import { mongodbAdapter } from "@better-auth/mongo-adapter";
-
-// Fix DNS resolution for MongoDB SRV records.
-setServers(["8.8.8.8", "1.1.1.1"]);
 
 const mongoUri = process.env.MONGODB_URI;
 
@@ -66,6 +62,6 @@ export const auth = betterAuth({
           },
         }
       : {}),
+
   },
 });
-
