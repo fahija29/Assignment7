@@ -1,6 +1,7 @@
 import ProductCard from "@/components/ProductCard";
 import { Product } from "@/lib/api";
 
+
 type ProductSectionProps = {
   id?: string;
   title: string;

@@ -1,5 +1,7 @@
 "use client";
 
+
+
 import { useEffect, useState } from "react";
 import { Product, getProducts } from "@/lib/api";
 import { formatChange, formatPrice } from "@/lib/utils";

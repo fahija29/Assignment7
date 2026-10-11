@@ -47,4 +47,5 @@ export const categories = [
     nameBn: "মসলা",
     icon: "🌶️",
   },
+  
 ];

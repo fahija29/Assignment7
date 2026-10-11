@@ -12,6 +12,7 @@ products = await getProducts();
 products = [];
 }
 
+
 const risers = [...products]
 .filter((product) => product.change > 0)
 .sort((a, b) => b.change - a.change)

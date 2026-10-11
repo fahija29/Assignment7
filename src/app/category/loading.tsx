@@ -1,4 +1,5 @@
 export default function Loading() {
+  
   return (
     <main className="min-h-screen bg-[#f6faf7]">
       <div className="mx-auto max-w-6xl px-4 py-8 sm:py-12">

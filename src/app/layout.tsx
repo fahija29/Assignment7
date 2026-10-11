@@ -12,6 +12,7 @@ export const metadata: Metadata = {
     "চাল, ডাল, তেল, সবজি, মাছ, মাংস, ডিম ও মসলার আজকের বাজার দর।",
 };
 
+
 export default function RootLayout({
   children,
 }: Readonly<{

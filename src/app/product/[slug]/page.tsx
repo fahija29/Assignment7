@@ -9,6 +9,17 @@ type ProductPageProps = {
   params: Promise<{ slug: string }>;
 };
 
+
+
+
+
+
+
+
+
+
+
+
 function formatPrice(price: number): string {
   return new Intl.NumberFormat("bn-BD", {
     maximumFractionDigits: 2,
@@ -60,6 +71,14 @@ export default async function ProductPage({ params }: ProductPageProps) {
     market.max,
   ]);
 
+
+
+
+
+
+
+
+  
   const minimumPrice =
     marketPrices.length > 0 ? Math.min(...marketPrices) : product.price;
 

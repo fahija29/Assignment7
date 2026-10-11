@@ -1,9 +1,21 @@
 
 import "server-only";
+import { setServers } from "node:dns";
 import { betterAuth } from "better-auth";
-import Database from "better-sqlite3";
+import { MongoClient } from "mongodb";
+import { mongodbAdapter } from "@better-auth/mongo-adapter";
 
-const database = new Database("./auth.db");
+// Fix DNS resolution for MongoDB SRV records.
+setServers(["8.8.8.8", "1.1.1.1"]);
+
+const mongoUri = process.env.MONGODB_URI;
+
+if (!mongoUri) {
+  throw new Error("MONGODB_URI is not configured in .env.local");
+}
+
+const client = new MongoClient(mongoUri);
+const database = client.db("bazardor");
 
 const googleClientId = process.env.GOOGLE_CLIENT_ID;
 const googleClientSecret = process.env.GOOGLE_CLIENT_SECRET;
@@ -16,7 +28,9 @@ export const auth = betterAuth({
 
   secret: process.env.BETTER_AUTH_SECRET,
 
-  database,
+  database: mongodbAdapter(database, {
+    client,
+  }),
 
   emailAndPassword: {
     enabled: true,

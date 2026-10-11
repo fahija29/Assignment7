@@ -7,6 +7,14 @@ import toast from "react-hot-toast";
 import Footer from "@/components/Footer";
 import { authClient } from "@/lib/auth-client";
 
+
+
+
+
+
+
+
+
 export default function SignupPage() {
 const router = useRouter();
 
